@@ -152,27 +152,27 @@ void printEmbedding(Embedding embedding) {
 
 void printTree(Mtree mtree) {
     queue<Node*> nodeQueue;
-    cout << "Queue is created" << endl;
-    cout << "Add root of tree " << mtree.root << endl;
+    //cout << "Queue creada" << endl;
+    cout << "Comenzamos con el nodo raiz: " << mtree.root << endl;
     nodeQueue.push(mtree.root);
     while(!nodeQueue.empty()) {
         Node * node = nodeQueue.front();
         cout << "-------------------------" << endl;
         if (node->isLeaf)
-            cout << "Address of leaf node " << node << endl;
+            cout << "Address del nodo hoja " << node << endl;
         else 
-            cout << "Address of inner node " << node << endl;
+            cout << "Address de nodo interno " << node << endl;
         nodeQueue.pop();
 
         if (node == NULL) continue;
         if (node->parentEntry) {
-            cout << "parentEntry" << node->parentEntry->embedding->features[0] << "(" << node->parentEntry->radius << "," << node->parentEntry->distanceToParent << ")" << endl;
+            cout << "Padre: " << node->parentEntry->embedding->id << "(" << node->parentEntry->radius << "," << node->parentEntry->distanceToParent << ")" << endl;
         }
         else {
-            cout<< "empty Entry" <<endl;
+            cout<< "No tiene Padre :c " <<endl;
         }
         for (Entry entry : node->entries) {
-            cout << entry.embedding->id << " (" << entry.radius << "," << entry.distanceToParent << ")" << " ";
+            cout << entry.embedding->id << " (" << entry.radius << "," << entry.distanceToParent << ")" << "   -    ";
             if (!node->isLeaf)
                 nodeQueue.push(entry.subTree);
         }

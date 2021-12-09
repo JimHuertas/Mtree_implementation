@@ -19,13 +19,13 @@ int main() {
     float features[2] = {2,3};
     Embedding embedding = {features, 2, "Peru"};
     vector<Embedding> results = queryRange(mtree.root, embedding, 3);
-    cout<<"\n\nResultados: "<<endl;
+    cout<<"\n\nQueryRange: "<<endl;
     for(Embedding i : results){
         printEmbedding(i);
     }
-    cout<<"\n\nEl otro: "<<endl;
+    cout<<"\n\nQueryRange Radio: "<<endl;
     set<string> indexResults = diversedQueryRange(mtree, embedding, 10, 4);
-    cout << "Search done" << endl;
+    //cout << "Busqueda hecha :D" << endl;
     for (auto embeddingResult : indexResults)
         cout << embeddingResult << "    ";
 }
