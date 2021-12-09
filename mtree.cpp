@@ -1,5 +1,5 @@
 #include <queue>
-#include "Mtree.hpp"
+#include "mtree.hpp"
 
 void Mtree::addObject(Embedding embedding) {
     size++;
